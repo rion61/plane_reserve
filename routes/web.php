@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //個人情報の表示
@@ -63,3 +64,5 @@ Route::get('/member', [App\Http\Controllers\ManagerController::class, 'member'])
     //ここにRoute定義
 
 // });
+//勝尾さんのルート
+Route::get('/views', [App\Http\Controllers\SystemController::class, 'managerhome'])->name('managershome');
