@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/user', function () {
+    return view('user');
+});
+
+Route::get('/edituser', function () {
+    return view('edituser');
+});
+
+//Route::get('/user',[App\Http\Controllers\HomeController::class, 'userinfo'])->name('user');
+
+//Route::get('/edituser', [App\Http\Controllers\HomeController::class, 'edituser'])->name('esituser');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
