@@ -21,6 +21,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//勝尾
+Route::get('/airplane_reserve', [App\Http\Controllers\SystemController::class, 'airplane_reserve'])->name('airplane_reserve');
+Route::get('/airplane_create', [App\Http\Controllers\SystemController::class, 'airplane_create'])->name('airplane_create');
+Route::get('/create_check', [App\Http\Controllers\SystemController::class, 'create_check'])->name('create_check');
+Route::get('/airplane_edit', [App\Http\Controllers\SystemController::class, 'airplane_edit'])->name('airplane_edit');
+Route::get('/manager_profile_edit', [App\Http\Controllers\SystemController::class, 'manager_profile_edit'])->name('manager_profile_edit');
+Route::get('/airplane_list', [App\Http\Controllers\SystemController::class, 'airplane_list'])->name('airplane_list');
+Route::get('/reserve_list', [App\Http\Controllers\SystemController::class, 'reserve_list'])->name('reserve_list');
+Route::get('/member_list', [App\Http\Controllers\SystemController::class, 'member_list'])->name('member_list');
+//勝尾ここまで
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -66,3 +76,4 @@ Route::get('/member', [App\Http\Controllers\ManagerController::class, 'member'])
 // });
 //勝尾さんのルート
 Route::get('/views', [App\Http\Controllers\SystemController::class, 'managerhome'])->name('managershome');
+
