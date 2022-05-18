@@ -1,7 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagerController;
 
 /*
@@ -33,6 +38,26 @@ Route::get('/member_list', [App\Http\Controllers\SystemController::class, 'membe
 //勝尾ここまで
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//TOPページの表示
+Route::get('/top',[ReserveController::class,'index'])->name('top');
+
+//選択した飛行機情報を持って予約確認ページへ
+Route::get('/showdetail/{id}',[ReserveController::class,'show'])->name('detail'
+);
+
+// ログイン中のユーザーが予約を確定する
+Route::post('/completed/{id}', [ReserveController::class,'store'])->name('completed');
+
+// ログインユーザーの予約情報確認画面の表示
+Route::get('/mybooks',[BookController::class,'index'])->name('books');
+
+// 予約削除確認画面
+Route::get('/mybook/{id}',[BookController::class,'show'])->name('book');
+
+// 予約の削除
+Route::post('/mybook{id}',[BookController::class,'update'])->name('delete');
 
 //個人情報の表示
 Route::get('/user', [App\Http\Controllers\ManagerController::class, 'user'])->name('user');
@@ -76,4 +101,5 @@ Route::get('/member', [App\Http\Controllers\ManagerController::class, 'member'])
 // });
 //勝尾さんのルート
 Route::get('/views', [App\Http\Controllers\SystemController::class, 'managerhome'])->name('managershome');
+
 
