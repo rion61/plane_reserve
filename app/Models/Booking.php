@@ -1,22 +1,18 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class booking extends Model
+class Booking extends Model
 {
     use HasFactory;
-
-    public function user()
+    public function getUserNameById($plane_id)
     {
-        return $this->belongsTo(User::class);
+        return DB::table('bookings')
+            ->join('users', 'bookings.user_id', '=', 'users.id')
+            ->where('bookings.plane_id', '=',$plane_id)->get();
     }
-
-    public function plane()
-    {
-        return $this->belongsTo(Plane::class);
-    }
-
 }
+
