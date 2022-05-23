@@ -9,3 +9,5 @@ class Plane extends Model
 {
     use HasFactory;
 }
+
+
