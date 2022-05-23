@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+// use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +17,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-
     /**
      * Bootstrap any application services.
      *
@@ -23,6 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-    }
+        $this->registerPolicies();
+
+        // 開発者のみ許可
+        Gate::define('system-only', function ($user) {
+            return ($user->role == 1);
+        });
+
+        // 一般ユーザ（つまり全権限）に許可
+        Gate::define('user-higher', function ($user) {
+            return ($user->role >= 0 );
+        });
+            }
 }
