@@ -6,25 +6,41 @@ use App\Models\User;
 use App\Models\Plane;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ManagerController extends Controller
 {
     //会員の全件表示
     public function member(){
 
-    $user = User::all();
-    return view('old_member')->with([
-    'user' => $user,
-    ]);
+        $user = User::all();
+        return view('old_member')->with([
+        'user' => $user,
+        ]);
+    }
+
+    //検索機能
+    public function memberSearch(Request $request){
+
+        //name、Email,Telの検索
+        $search = $request->search;
+        if ($search != '') {
+            $post = user::where(DB::raw("CONCAT(name, email, tel)"),'like','%'.$search.'%')->orderBy('created_at','desc')->paginate(50);
+        }else {      //クリア機能
+        $post = user::orderBy('created_at','desc')->paginate(50);
+        }
+        return view('old_member')->with([
+            'user' => $post,
+            ]);
     }
 
     //会員の個人表示
     public function user(){
 
-    $user = User::where('id','=',Auth::user()->id)->first();
-    return view('old_user')->with([
-    'user' => $user,
-    ]);
+        $user = User::where('id','=',Auth::user()->id)->first();
+        return view('old_user')->with([
+        'user' => $user,
+        ]);
     }
 
     //会員の個人編集確認
