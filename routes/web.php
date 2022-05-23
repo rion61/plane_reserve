@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -73,3 +74,8 @@ Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
     //個人情報の編集
     Route::post('/userEdit_Save', [App\Http\Controllers\ManagerController::class, 'userEdit_Save'])->name('userEdit_Save');
 });
+
+
+//勝尾さんのルート
+Route::get('/views', [App\Http\Controllers\SystemController::class, 'managerhome'])->name('managershome');
+
