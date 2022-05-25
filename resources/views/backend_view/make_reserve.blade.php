@@ -48,7 +48,7 @@
 
         {{-- 予約ボタン 予約確認画面 --}}
         <form method="post" action="{{ route('completed', $plane) }}">
-            {{-- @method('put') --}}
+            @method('put')
             @csrf
             <button type="submit" class="btn btn-danger w-50">予約を確定する</button>
         </form>

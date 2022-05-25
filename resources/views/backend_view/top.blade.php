@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>確認用</title>
-    <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/app.js" defer></script>
-</head>
-
-<body>
+@extends('layouts.app')
+@section('content')
     {{-- ログイン中のユーザーの予約情報の一覧ページへ --}}
-    <a href="{{ route('books')}}">&gt;&gt;予約確認</a></td>
+    <a href="{{ route('books') }}">&gt;&gt;予約確認</a></td>
 
     <a href="">&gt;&gt;登録情報確認</a></td>
-    <a href="{{ route('home') }}">&gt;&gt;ホームに戻る</a></td>
+
     <!-- フラッシュメッセージ -->
-    @if (session('successMessage'))
-        <div class="alert alert-success">
-            {{ session('successMessage') }}
+    @if (session('flash_message'))
+        <div class="flash_message bg-success text-center py-3 my-0">
+            {{ session('flash_message') }}
         </div>
     @endif
+
     <table class="table table-light table-bordered">
         <tr>
             <th>日付</th>
@@ -44,6 +34,4 @@
             </tr>
         @endforeach
     </table>
-</body>
-
-</html>
+@endsection

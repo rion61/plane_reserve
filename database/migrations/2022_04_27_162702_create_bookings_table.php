@@ -21,6 +21,8 @@ class CreateBookingsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('plane_id')->references('id')->on('planes')->onDelete('cascade');
+
+            $table->unique(['user_id','plane_id']);
         });
     }
 
