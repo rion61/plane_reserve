@@ -14,5 +14,5 @@ class Booking extends Model
             ->join('users', 'bookings.user_id', '=', 'users.id')
             ->where('bookings.plane_id', '=',$plane_id)->get();
     }
-
 }
+

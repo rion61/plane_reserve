@@ -1,5 +1,75 @@
-body{
-  
+
+/* user画面 */
+p{font-size:20px;
+    text-align:center; margin: 100px auto;
+    color:rgb(6, 40, 230);}
+
+    
+button{font-size:15px;
+    color:rgb(102, 9, 12);}
+ .box6 {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: #f0f7ff;
+    border: dashed 2px #5b8bd0;/*点線*/
+}
+.box6 p {
+    margin: 0; 
+    padding: 0;
+}   
+
+/* 編集画面 */
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+/* 予約確認画面 */
+.reserve{
+    
+    display: flex;
+    justify-content: center;
+    padding : 20px 10px;
+	font-size: 35px;
+	transform: scaleX(0.8);
+}
+
+th, td {
+    border: solid 1px #333; /* 線の種類 太さ 色 */
+  }
+
+.button{
+    margin-right: 0;
+    margin-left: auto;
+    width: 30%;
+}
+
+.modoru{
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+}
+/* 予約一覧 */
+.list{
+    display: flex;
+    justify-content: center;
+    padding : 20px 10px;
+	font-size: 35px;
+	transform: scaleX(0.8);
+}
+.right{
+    margin-right: 0;
+    margin-left: auto;
+    width: 30%;
+    
+}
+
+.h1{
+    display: flex;
+    justify-content: center;
+
 }
 .container{
 width:100%;
