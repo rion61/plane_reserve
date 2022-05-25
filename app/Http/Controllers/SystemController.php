@@ -29,10 +29,10 @@ class SystemController extends Controller
                 'users' => $users,
             ]);
         }
-        public function create_check(Request $request)
+        public function airplane_check(Request $request)
         {
             $users = User::orderBy('created_at', 'asc')->get();
-            return view('create_check', [
+            return view('airplane_check', [
                 'users' => $users,
             ]);
         }
@@ -68,6 +68,20 @@ class SystemController extends Controller
         {
             $users = User::orderBy('created_at', 'asc')->get();
             return view('member_list', [
+                'users' => $users,
+            ]);
+        }
+        public function reservation_person_list(Request $request)
+        {
+            $users = User::orderBy('created_at', 'asc')->get();
+            return view('reservation_person_list', [
+                'users' => $users,
+            ]);
+        }
+        public function airplane_choice(Request $request)
+        {
+            $users = User::orderBy('created_at', 'asc')->get();
+            return view('airplane_choice', [
                 'users' => $users,
             ]);
         }
