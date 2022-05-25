@@ -19,7 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'tel',
         'email',
+        'tel',
         'password',
     ];
 
@@ -41,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function planes()
+    {
+        return $this->belongsToMany(Plane::class,'bookings','user_id','plane_id')->withTimestamps();
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
