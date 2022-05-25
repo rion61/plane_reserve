@@ -25,6 +25,16 @@ Route::get('/edituser', function () {
     return view('edituser');
 });
 
+Route::get('/confirmreserve', function () { return view('confirmreserve');});
+
+Route::get('/deleteuser', function () {
+    return view('deleteuser');
+});
+
+Route::get('/reservelist', function () {
+    return view('reservelist');
+});
+
 //Route::get('/user',[App\Http\Controllers\HomeController::class, 'userinfo'])->name('user');
 
 //Route::get('/edituser', [App\Http\Controllers\HomeController::class, 'edituser'])->name('esituser');
