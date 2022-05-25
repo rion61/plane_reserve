@@ -1,3 +1,6 @@
+body{
+  
+}
 .container{
 width:100%;
 max-width:1000px;
@@ -8,6 +11,11 @@ font-size: 30px;
 text-align: center;
 margin-top: 30px;
 }
+.table-title p{
+  font-size: 20px;
+  text-align: left;
+  }
+
 .airplane_list_table{
 border: 2px solid;
 margin: 0 auto;
@@ -18,7 +26,8 @@ table-layout:fixed;
 word-wrap:break-word;
 }
 th,td{
-border:1px solid rgb(0, 0, 0);    
+border:1px solid rgb(0, 0, 0); 
+font-weight: normal;   
 }
 th{
 background-color: #333333;
@@ -30,16 +39,18 @@ text-align: center;
 }
 .airplane_list_table a{
 text-decoration: none;
-color: rgb(255, 255, 255);
-background-color: 	#2C7CFF;
+color: #333333;
+background-color: 	#9ADCFF;
 border: 1px solid #000000;
 border-radius: 5px;
 width: 100%;
+padding: 10px;
 }
 .airplane_list_table a:hover {
-background-color: #005fff;
+background-color: #669eff;
 border: 1px solid #000000;
 }
+
 .user_edit_btn {
 margin: auto;
 text-align:center;
@@ -47,8 +58,8 @@ text-align:center;
 
 .user_edit_btn a{
 padding: 0 5px;
-color: rgb(255, 255, 255);
-background-color: #2C7CFF;
+color: rgb(4, 4, 4);
+background-color: #a4c7ff;
 border: 1px solid #000000;
 border-radius: 10px;
 text-decoration: none;
@@ -168,20 +179,41 @@ background-color: #005fff;
 
 /*管理者編集画面*/
 .manager_profile_title{
-    font-size:30px;
-    text-align:center;
-    margin-top:30px;   
+font-size:30px;
+text-align:center;
+margin-top:30px;   
 }
 
+/*会員一覧画面*/
+.searcharea{
+width: 50%;
+height: 50px;
+background-color: #888888;
+}
+.searcharea2{
+text-align: center;
+padding-top: 10px;
+}
 
+.searchform{
+width: 60%;
+border: 1px solid #ffffff;
+}
+.searchform:focus{
+outline: 1px solid #ffffff;
+}
+.searchbtn{
+margin-left: 8%;
+width: 20%;
+}
 .tab-wrap {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
   }
   .tab-label {
     width: 150px;
