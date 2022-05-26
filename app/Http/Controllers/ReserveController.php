@@ -47,19 +47,24 @@ class ReserveController extends Controller
         // // ログイン中のユーザーが予約を確定する
         $plane = Plane::find($id);
         $user = Auth::user();
+        // dd(count(Booking::where('plane_id',$plane->id)->where('user_id',$user->id)->get()) == 0);
+        // dd($user->id && $plane->id);
+        // dd($user,$plane);
         //dd($id);//選択した飛行機のid
         //dd($user->planes);//ログインしているユーザーの予約情報
+        // dd($id);
 
-        // if (Booking::find($user->id)->find($plane->id)->exists())
-        // {
-            // return redirect('top')->with('flash_message', 'このプランは既に予約済みです');
 
-        // } else {
+        if (count(Booking::where('plane_id',$plane->id)->where('user_id',$user->id)->get()) > 0)
+        {
+            return redirect('top')->with('flash_message', 'このプランは既に予約済みです');
+
+        } else {
 
             $plane->users()->syncWithoutDetaching(Auth::user()->id);
             // 予約完了メッセージ
             return redirect('top')->with('flash_message', '予約が完了しました');
-        // }
+        }
     }
 
     /**
