@@ -73,7 +73,7 @@ Route::get('/showdetail/{id}',[ReserveController::class,'show'])->name('detail'
 );
 
 // ログイン中のユーザーが予約を確定する
-Route::post('/completed/{id}', [ReserveController::class,'store'])->name('completed');
+Route::put('/completed/{id}', [ReserveController::class,'store'])->name('completed');
 
 // ログインユーザーの予約情報確認画面の表示
 Route::get('/mybooks',[BookController::class,'index'])->name('books');
