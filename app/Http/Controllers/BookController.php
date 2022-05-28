@@ -85,7 +85,7 @@ class BookController extends Controller
         $plane->users()->detach(Auth::user()->id);
         // 予約完了メッセージ
         //トップページに戻る
-        return redirect('top')->with('successMessage', '予約を削除しました');
+        return redirect('top')->with('flash_message', '予約を削除しました');
     }
 
     /**
