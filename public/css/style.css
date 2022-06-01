@@ -1,222 +1,175 @@
-.container{
-width:100%;
-max-width:1000px;
+/* -------------------------------------------
+共通container
+--------------------------------------------*/
+.common-container {
+    max-width: 1100px;
+    margin: 0 auto;
 }
-/*top画面*/
-.table-title h1{
-font-size: 30px;
-text-align: center;
-margin-top: 30px;
-}
-.airplane_list_table{
-border: 2px solid;
-margin: 0 auto;
-width: 100%;
-max-width:1000px;
-font-size:20px;
-table-layout:fixed;
-word-wrap:break-word;
-}
-th,td{
-border:1px solid rgb(0, 0, 0);    
-}
-th{
-background-color: #333333;
-color: rgb(255, 255, 255);
-text-align:center;
-}
-td{
-text-align: center;
-}
-.airplane_list_table a{
-text-decoration: none;
-color: rgb(255, 255, 255);
-background-color: 	#2C7CFF;
-border: 1px solid #000000;
-border-radius: 5px;
-width: 100%;
-}
-.airplane_list_table a:hover {
-background-color: #005fff;
-border: 1px solid #000000;
-}
-.user_edit_btn {
-margin: auto;
-text-align:center;
-}
-
-.user_edit_btn a{
-padding: 0 5px;
-color: rgb(255, 255, 255);
-background-color: #2C7CFF;
-border: 1px solid #000000;
-border-radius: 10px;
-text-decoration: none;
-font-size:20px;    
-}
-.user_edit_btn a:hover {
-background-color: #005fff;
-border: 1px solid #000000;
-}
-
-/*飛行機作成画面*/
-.airplane_create_title h1{
-font-size: 30px;
-text-align: center;
-margin-top: 30px;
-}
-
-.createform{
-margin: 0 auto 0 auto;
-width: 100%;
-table-layout: fixed;
-max-width:1000px;
-font-size:20px;
-}
-.table_form{
-height:60px;
-width: 100%;
-text-align: center;
-border: 1px solid #ffffff;
-}
-.table_form:focus{
-outline: 1px solid #ffffff;
-}
-.table_form2{
-height:60px;
-width: 100%;
-text-align: center;
-border: 1px solid #ffffff;
-padding-left: 35px;
-}
-.table_form2:focus{
-outline: 1px solid #ffffff;
-}
-.create_btn{
-display: block;
-margin:50px auto 50px auto;
-border-radius: 10px;
-color: rgb(255, 255, 255);
-background-color: #2C7CFF;
-border: 2px solid #ffffff;
-font-size: 20px;
-padding: 10px;
-width: 30%;
-}
-.create_btn:hover {
-background-color: #005fff;
-}
-
-.back_btn{
-text-align: left;
-display: block;
-}
-.back_btn a{
-padding: 0 5px;
-color: rgb(255, 255, 255);
-background-color: #959595;
-border: 1px solid #000000;
-border-radius: 10px;
-text-decoration: none;
-font-size:25px;
-border-color: #ffffff;
-}
-.back_btn a:hover {
-background-color: #6c757d;
-border: 1px solid #41464b;
-}
-
-/*飛行機作成確認画面*/
-.create_check_title h1{
-font-size: 30px;
-text-align: center;
-margin-top: 30px;
-}
-
-.create_check_form{
-margin: 0 auto 0 auto;
-width: 100%;
-table-layout: fixed;
-max-width:1000px;
-font-size:20px;
-height: 316px;
-}
-/*飛行機編集画面*/
-.airplane_edit_title h1{
-font-size:30px;
-text-align:center;
-margin-top:30px;
-}
-.edit_btn_area{
-display:flex;
-width: 100%;
-justify-content: center;
-}
-.airplane_edit_btn{
-margin: 20px;
-border-radius: 10px;
-color: rgb(255, 255, 255);
-background-color: #2C7CFF;
-border: 2px solid #ffffff;
-font-size: 20px;
-padding: 10px;
-width: 30%;
-}
-.airplane_edit_btn:hover {
-background-color: #005fff;
-}
-
-/*管理者編集画面*/
-.manager_profile_title{
-    font-size:30px;
-    text-align:center;
-    margin-top:30px;   
-}
-
-
-.tab-wrap {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    box-sizing: border-box;
-  }
-  .tab-label {
-    width: 150px;
-    color: White;
-    background: LightGray;
-    font-weight: bold;
-    white-space: nowrap;
+/* タイトル */
+.main-title h1 {
     text-align: center;
-    border:1px solid Gray;
-    border-radius: 4px 0 0 4px;
-    margin: 5px -1px 5px 1px;
-    padding: 10px .5em;
-    order: -1;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-    float:left;
-  }
-  .tab-content {
-    display:none;
-  }
-  /* アクティブなタブ */
-  .tab-switch:checked+.tab-label {
-    color: Gray;
-    background: White;
-    border-right-color: White;
-  }
-  .tab-switch:checked+.tab-label+.tab-content {
-    width: calc(100% - 150px); /* - ボタン幅 */
-    height: 100%;
-    padding: 15px;
-    border-left: 1px solid Gray;
-    display:block;
-  }
-  /* ラジオボタン非表示 */
-  .tab-switch {
-    display: none;
-  }
+    margin: 40px 0;
+    font-size: 23px;
+}
+.main-title p {
+    font-size: 20px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+/* ユーザーtopに戻るリンク */
+.user-link {
+    display: block;
+    margin: 30px 0 0 40px;
+}
+/* ----------------------------------------------
+管理者画面
+-----------------------------------------------*/
+.manager-list {
+    display: flex;
+}
+.manager-nav {
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.manager-nav a {
+    display: block;
+    padding: 25px 0 25px 30px;
+    text-decoration: none;
+    border-bottom: solid 1px black;
+    width: 270px;
+    font-size: 16px;
+}
+.manager-news {
+    margin: 80px 100px 0;
+}
+.manager-news h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+.manager-news p {
+    margin-left: 30px;
+}
+/* 管理者topに戻るリンク */
+.manager-link {
+    display: block;
+}
+/*-------------------------------------------
+会員一覧,飛行機便リストで共通に使用
+---------------------------------------------- */
+/* テーブル */
+.plane_table {
+    margin: 0 auto;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+.plane_table th {
+    font-size: 22px;
+    border: none;
+    font-weight: 100;
+    border-bottom: 2px solid black;
+}
+.plane_table td {
+    font-size: 16px;
+    border-bottom: none;
+}
+.plane_create button {
+    height: 50px;
+    width: 200px;
+    margin-top: 80px;
+}
+.create_edit_input {
+    width: 300px;
+}
+/* 検索フォームの上部余白*/
+.search-form {
+    margin-top: 30px;
+}
+/* 検索フォーム */
+.searchForm {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 30px;
+    border: solid 1px gray;
+}
+.searchForm:focus {
+    outline: 1px solid #ffffff;
+}
+/* 検索ボタン */
+.searchBtn {
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    color: #000;
+    background-color: lightgray;
+}
+/* クリアボタン */
+.clearBtn {
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    color: #000;
+    background-color: transparent;
+    margin-left: 30px;
+    border: solid 1px gray;
+}
+/*-------------------------------------------
+飛行機予約者一覧のタイトルpタグ
+---------------------------------------------- */
+.plane_reserve-list {
+    margin-top: 70px;
+    font-size: 20px;
+}
+
+/* --------------------------------------------
+飛行機作成、編集
+--------------------------------------------- */
+.create_edit_form th {
+    font-size: 22px;
+    font-weight: 100;
+    padding: 15px 0;
+}
+.create_edit_form td {
+    font-size: 22px;
+    padding-left: 20px;
+}
+.create_edit_btn {
+    padding: 8px 20px;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+/* ユーザー情報編集 */
+.use-detail {
+    margin: 60px 0 30px;
+    font-size: 25px;
+}
+/* -------------------------------------------
+登録・編集・削除・戻るボタン
+------------------------------------------- */
+.btn-secondary {
+    margin: 50px 20px 10px;
+    width: 150px;
+}
+.btn-primary {
+    margin: 50px 20px 10px;
+    width: 150px;
+}
+
+.btn-danger {
+    margin: 50px 20px 10px;
+    width: 150px;
+}
+/* ----------------------------------
+footer
+-------------------------------------*/
+footer {
+    background-color: skyblue;
+    text-align: center;
+    margin-top: 30px;
+}
+footer p {
+    padding: 10px 0;
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+}

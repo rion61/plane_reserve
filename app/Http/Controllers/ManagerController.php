@@ -6,32 +6,48 @@ use App\Models\User;
 use App\Models\Plane;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ManagerController extends Controller
 {
     //会員の全件表示
-    public function member(){
+    public function member_list(){
 
-    $user = User::all();
-    return view('old_member')->with([
-    'user' => $user,
-    ]);
+        $user = User::all();
+        return view('member_list')->with([
+        'user' => $user,
+        ]);
+    }
+
+    //検索機能
+    public function memberSearch(Request $request){
+
+        //name、Email,Telの検索
+        $search = $request->search;
+        if ($search != '') {
+            $post = user::where(DB::raw("CONCAT(name, email, tel)"),'like','%'.$search.'%')->orderBy('created_at','desc')->paginate(50);
+        }else {      //クリア機能
+        $post = user::orderBy('created_at','desc')->paginate(50);
+        }
+        return view('member_list')->with([
+            'user' => $post,
+            ]);
     }
 
     //会員の個人表示
     public function user(){
 
-    $user = User::where('id','=',Auth::user()->id)->first();
-    return view('old_user')->with([
-    'user' => $user,
-    ]);
+        $user = User::where('id','=',Auth::user()->id)->first();
+        return view('user')->with([
+        'user' => $user,
+        ]);
     }
 
     //会員の個人編集確認
     public function userEdit(Request $request){
 
         $user = User::where('id','=',Auth::user()->id)->first();
-        return view('old_userEdit')->with([
+        return view('user_edit')->with([
             'user' => $user,
         ]);
     }
@@ -44,16 +60,16 @@ class ManagerController extends Controller
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->save();
-        return view('old_view_edit');
+        return redirect('user')->with('flash_message', '正常に編集されました');;
 }
     // 飛行機作成
-    public function plane(){
+    public function plane_create(){
 
-        return view('old_plane');
+        return view('plane_create');
     }
 
     // 飛行機作成確認
-    public function  planeCreate(Request $request){
+    public function  plane_create_check(Request $request){
 
         $plane = New Plane();
 
@@ -63,7 +79,7 @@ class ManagerController extends Controller
         $plane->departure = $request->departure;
         $plane->arrival = $request->arrival;
 
-        return view('old_plane_create')->with([
+        return view('plane_create_check')->with([
             'plane' => $plane,
         ]);
     }
@@ -80,25 +96,26 @@ class ManagerController extends Controller
         $plane->arrival = $request->arrival;
         $plane->save();
 
-        return view('old_view_edit');
+        return redirect('plane_list')->with('flash_message', '正常に作成されました');
     }
+    
 
     // 飛行機一覧
-    public function  planeList(){
+    public function  plane_list(){
 
         $plane = Plane::all();
 
-        return view('old_plane_list')->with([
+        return view('plane_list')->with([
             'plane' => $plane,
         ]);
     }
 
     // 飛行機編集
-    public function  planeEdit(Request $request){
+    public function  plane_edit(Request $request){
 
         $plane = Plane::where('id','=', $request->id)->first();
 
-        return view('old_plane_edit')->with([
+        return view('plane_edit')->with([
             'plane' => $plane,
         ]);
     }
@@ -115,7 +132,7 @@ class ManagerController extends Controller
         $plane->arrival = $request->arrival;
         $plane->save();
 
-        return view('old_view_edit');
+        return redirect('plane_list')->with('flash_message', '正常に編集されました');
     }
 
     // 飛行機削除
@@ -125,15 +142,15 @@ class ManagerController extends Controller
 
         $plane->delete();
 
-        return view('old_view_edit');
+        return redirect('plane_list')->with('flash_message', '正常に削除されました');
     }
 
     // 予約者リスト（飛行機選択）
-    public function reservationList_planeSelect(){
+    public function reservation_list_planeSelect(){
 
         $plane = Plane::all();
 
-        return view('old_reservationList_planeSelect')->with([
+        return view('reservation_list_planeSelect')->with([
             'plane' => $plane,
         ]);
     }
@@ -147,8 +164,13 @@ class ManagerController extends Controller
         // 予約テーブルとuserテーブルの結合からデータ取得
         $this->booking = New Booking();
         $results = $this->booking->getUserNameById($request->id);
-        return view('old_reservationList',compact( 'results',))->with([
+        return view('reservation_list',compact( 'results',))->with([
             'plane' => $plane,
         ]);
+    }
+
+    public function manager(){
+
+        return view('manager');
     }
 }
