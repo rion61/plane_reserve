@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Plane extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
 
     public function users()
     {
@@ -19,6 +18,5 @@ class Plane extends Model
     {
         return $this->hasMany(booking::class);
     }
-=======
->>>>>>> develop
+
 }

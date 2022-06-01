@@ -15,11 +15,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    {{-- script --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -60,6 +62,23 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->id === 1)
+                                        <a class="dropdown-item" href="{{ route('manager',['id' => Auth::user()->id]) }}">
+                                                {{ __('管理者画面') }}
+                                        </a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ route('top') }}">
+                                        {{ __('新規予約をする') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('user') }}">
+                                        {{ __('登録情報を確認') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('books') }}">
+                                        {{ __('予約を確認') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -81,5 +100,8 @@
             @yield('content')
         </main>
     </div>
+    <footer>
+        <p>&copy;team90</p>
+    </footer>
 </body>
 </html>

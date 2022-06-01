@@ -19,7 +19,7 @@ class BookController extends Controller
         // ログインユーザーの予約済み飛行機一覧表示
         $user = Auth::user();
         // dd($user->planes);
-        return view('backend_view.my_book', ['user' => $user]);
+        return view('user_reserve_list', ['user' => $user]);
     }
     /**
      * Show the form for creating a new resource.
@@ -56,7 +56,7 @@ class BookController extends Controller
         // 対象の予約を探す
         $plane = Plane::find($id);
         // dd($plane);
-        return view('backend_view.delete_detail')->with(['plane' => $plane, 'user' => $user]);
+        return view('user_reserve_delete')->with(['plane' => $plane, 'user' => $user]);
     }
 
     /**
@@ -85,7 +85,9 @@ class BookController extends Controller
         $plane->users()->detach(Auth::user()->id);
         // 予約完了メッセージ
         //トップページに戻る
-        return redirect('top')->with('flash_message', '予約を削除しました');
+
+        return redirect('mybooks')->with('flash_message', '予約を削除しました');
+
     }
 
     /**
