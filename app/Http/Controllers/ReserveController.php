@@ -17,15 +17,16 @@ class ReserveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         // 飛行機プラン選択一覧
         $planes = Plane::all();
         // トップ画面の表示
         //@return view
-        return view('backend_view.top', ["planes" => $planes]);
-    }
+        return view('top', ["planes" => $planes]);
 
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -44,26 +45,26 @@ class ReserveController extends Controller
      */
     public function store($id)
     {
-        // // ログイン中のユーザーが予約を確定する
+                // // ログイン中のユーザーが予約を確定する
         $plane = Plane::find($id);
         $user = Auth::user();
-        // dd(count(Booking::where('plane_id',$plane->id)->where('user_id',$user->id)->get()) == 0);
-        // dd($user->id && $plane->id);
-        // dd($user,$plane);
-        //dd($id);//選択した飛行機のid
-        //dd($user->planes);//ログインしているユーザーの予約情報
-        // dd($id);
+                // dd(count(Booking::where('plane_id',$plane->id)->where('user_id',$user->id)->get()) == 0);
+                // dd($user->id && $plane->id);
+                // dd($user,$plane);
+                // dd($id);//選択した飛行機のid
+                // dd($user->planes);//ログインしているユーザーの予約情報
+                // dd($id);
 
 
         if (count(Booking::where('plane_id',$plane->id)->where('user_id',$user->id)->get()) > 0)
         {
-            return redirect('top')->with('flash_message', 'このプランは既に予約済みです');
+            return redirect('mybooks')->with('flash_message', 'このプランは既に予約済みです');
 
         } else {
 
             $plane->users()->syncWithoutDetaching(Auth::user()->id);
             // 予約完了メッセージ
-            return redirect('top')->with('flash_message', '予約が完了しました');
+            return redirect('mybooks')->with('flash_message', '予約が完了しました');
         }
     }
 
@@ -73,6 +74,7 @@ class ReserveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //選択した飛行機情報を持って予約確認ページへ
@@ -84,9 +86,8 @@ class ReserveController extends Controller
         // dd($plane->id);
 
         //選択した飛行機プランの予約画面表示
-        return view('backend_view.make_reserve')->with(['user' => $user, 'plane' => $plane]);
+        return view('user_reserve_confirm')->with(['user' => $user, 'plane' => $plane]);
     }
-
 
     /**
      * Show the form for editing the specified resource.

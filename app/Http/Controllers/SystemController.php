@@ -22,13 +22,13 @@ class SystemController extends Controller
                 'users' => $users,
             ]);
         }
-        public function airplane_create(Request $request)
-        {
-            $users = User::orderBy('created_at', 'asc')->get();
-            return view('airplane_create', [
-                'users' => $users,
-            ]);
-        }
+        // public function plane_create(Request $request)
+        // {
+        //     $users = User::orderBy('created_at', 'asc')->get();
+        //     return view('plane_create', [
+        //         'users' => $users,
+        //     ]);
+        // }
         public function airplane_check(Request $request)
         {
             $users = User::orderBy('created_at', 'asc')->get();

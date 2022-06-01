@@ -36,10 +36,10 @@ class LoginController extends Controller
     {
         $role = Auth::user()->role;
         if ($role == '1') {
-            return '/member';
+            return '/manager';
         } else{
 
-            return '/user';
+            return '/top';
         }
 
     }
