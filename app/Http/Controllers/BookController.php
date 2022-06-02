@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Cancel;
 use App\Models\Booking;
 use App\Models\Plane;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BookController extends Controller
 {
@@ -83,10 +85,16 @@ class BookController extends Controller
         $plane = Plane::find($id);
         // ユーザーと予約した飛行機の紐付けを解除する
         $plane->users()->detach(Auth::user()->id);
-        // 予約完了メッセージ
+
+        // 予約削除で確認メール送信機能
+        $user = Auth::user();
+        Mail::to($user)->send( new Cancel($user, $plane));
+
+
+        // 予約削除メッセージ
         //トップページに戻る
 
-        return redirect('mybooks')->with('flash_message', '予約を削除しました');
+        return redirect('mybooks')->with('flash_message', '予約を削除しました。確認メールを送信しました。');
 
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Reserved;
 use App\Models\Booking;
 use App\Models\Plane;
 use App\Models\User;
@@ -9,6 +10,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ReserveController extends Controller
 {
@@ -63,9 +65,14 @@ class ReserveController extends Controller
         } else {
 
             $plane->users()->syncWithoutDetaching(Auth::user()->id);
+
+            // 予約完了でメール送信機能追加
+            Mail::to($user)->send( new Reserved($user, $plane));
+
             // 予約完了メッセージ
-            return redirect('mybooks')->with('flash_message', '予約が完了しました');
+            return redirect('mybooks')->with('flash_message', '予約が完了しました。確認メールを送信しました。');
         }
+
     }
 
     /**
