@@ -30,6 +30,10 @@
                     <th>到 着 地</th>
                     <td>：　<input type="text" class="create_edit_input" name="arrival" placeholder="到着地"></td>
                 </tr>
+                <tr>
+                    <th>座 席 数</th>
+                    <td>：　<input type="text" class="create_edit_input" name="seat" placeholder="座席数"></td>
+                </tr>
             </table>
         <button type="submit"  class="btn btn-primary reservation-btn">次へ</button>
         </form>

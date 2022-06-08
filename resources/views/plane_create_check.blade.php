@@ -31,6 +31,10 @@
                     <th>到 着 地</th>
                     <td>：　{{$plane->arrival}}<input type="hidden" name="arrival"  value="{{$plane->arrival}}"></td>
                 </tr>
+                <tr>
+                    <th>座 席 数</th>
+                    <td>：　{{$plane->seat}}<input type="hidden" name="seat"  value="{{$plane->seat}}"></td>
+                </tr>
             </table>
             <button type="submit" class="btn btn-primary reservation-btn">作成</button>
         </form>

@@ -16,6 +16,7 @@
                 <th>到着時間</th>
                 <th>出発地</th>
                 <th>到着地</th>
+                <th>座席数</th>
             </tr>
             <tr>
                 <td>{{ $plane->id}}</td>
@@ -24,6 +25,7 @@
                 <td>{{ $plane->arrival_time}}</td>
                 <td>{{ $plane->departure}}</td>
                 <td>{{ $plane->arrival}}</td>
+                <td>{{ $plane->seat}}</td>
             </tr>
         </table>
 
