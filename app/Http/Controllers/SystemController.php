@@ -85,5 +85,12 @@ class SystemController extends Controller
                 'users' => $users,
             ]);
         }
+        public function topview(Request $request)
+        {
+            $users = User::orderBy('created_at', 'asc')->get();
+            return view('topview', [
+                'users' => $users,
+            ]);
+        }
 }
 
