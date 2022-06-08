@@ -20,6 +20,7 @@ class CreatePlanesTable extends Migration
             $table->time('arrival_time');
             $table->string('departure');
             $table->string('arrival');
+            $table->integer('seat');
             $table->timestamps();
         });
     }
