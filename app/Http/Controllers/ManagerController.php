@@ -78,6 +78,7 @@ class ManagerController extends Controller
         $plane->arrival_time = $request->arrival_time;
         $plane->departure = $request->departure;
         $plane->arrival = $request->arrival;
+        $plane->seat = $request->seat;
 
         return view('plane_create_check')->with([
             'plane' => $plane,
@@ -94,6 +95,7 @@ class ManagerController extends Controller
         $plane->arrival_time = $request->arrival_time;
         $plane->departure = $request->departure;
         $plane->arrival = $request->arrival;
+        $plane->seat = $request->seat;
         $plane->save();
 
         return redirect('plane_list')->with('flash_message', '正常に作成されました');
@@ -130,6 +132,7 @@ class ManagerController extends Controller
         $plane->arrival_time = $request->arrival_time;
         $plane->departure = $request->departure;
         $plane->arrival = $request->arrival;
+        $plane->seat = $request->seat;
         $plane->save();
 
         return redirect('plane_list')->with('flash_message', '正常に編集されました');

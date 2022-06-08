@@ -20,12 +20,48 @@ class ReserveController extends Controller
 
     public function index()
     {
-        // 飛行機プラン選択一覧
-        $planes = Plane::all();
-        // トップ画面の表示
-        //@return view
-        return view('top', ["planes" => $planes]);
+        //Top画面に予約枠を設ける
+        $planes = Plane::withCount('users')->get();
+            return view('top', ["planes" => $planes]);
 
+        // Top画面に予約枠を設ける
+        // $planes = Plane::all();
+        // $tmp = Booking::select(DB::raw('plane_id,COUNT(plane_id) as plane_count'))->groupBy('plane_id')->get()->toArray();
+        // $plane_counts=[];
+        // foreach($tmp as $v){
+        //     $plane_counts[$v['plane_id']] = $v['plane_count'];
+        // }
+        // return view('top', ["planes" => $planes, "planes"=>$plane_counts]);
+        // dd($planes);
+    }
+
+    //飛行機便の絞り込み検索
+    public function planeSearch(Request $request){
+
+        // $planes = Plane::withCount('users')->get();
+
+        $search1 = $request->search1;
+        $search2 = $request->search2;
+
+        // 日付あり、出発地なし
+        if ($search1 != '' && $search2 == '') {
+            $post = plane::where('date','like','%'.$search1.'%')->orderBy('created_at','desc')->withCount('users')->paginate(50);
+        }
+        // 日付なし、出発地あり
+        elseif($search1 == '' && $search2 != '') {
+            $post = plane::where('departure','like','%'.$search2.'%')->orderBy('created_at','desc')->withCount('users')->paginate(50);
+        }
+        // 日付あり、出発地あり
+        elseif ($search1 != '' && $search2 != ''){
+            $post = plane::where('date','like','%'.$search1.'%')->where('departure','like','%'.$search2.'%')->orderBy('created_at','desc')->withCount('users')->paginate(50);
+        }
+        // 日付なし、出発地なし
+        else {
+            $post = plane::orderBy('created_at','desc')->withCount('users')->paginate(50);
+        }
+            return view('top')->with([
+                'planes' => $post, 'planes' => $post,
+        ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -66,6 +102,7 @@ class ReserveController extends Controller
             // 予約完了メッセージ
             return redirect('mybooks')->with('flash_message', '予約が完了しました');
         }
+
     }
 
     /**
@@ -77,16 +114,21 @@ class ReserveController extends Controller
 
     public function show($id)
     {
-        //選択した飛行機情報を持って予約確認ページへ
-        // 予約するボタンからの遷移
-        // 選択した飛行機の情報を持ってくる
-        $user = Auth::user();
-        // dd($user->id);
         $plane = Plane::find($id);
-        // dd($plane->id);
 
-        //選択した飛行機プランの予約画面表示
+        //選択された飛行機便の「予約数」を取得
+        $count = Booking::where('plane_id','=',$id)->get()->count();
+
+        //選択された飛行機便の「座席数」を取得し条件分岐
+        if( $count >= $plane->seat ){
+            return view('user_reserve_not');
+        }else{
+
+        //選択した飛行機IDをもって確認画面に遷移
+        $user = Auth::user();
+        $plane = Plane::find($id);
         return view('user_reserve_confirm')->with(['user' => $user, 'plane' => $plane]);
+        }
     }
 
     /**
