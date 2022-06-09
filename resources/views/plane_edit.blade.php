@@ -12,28 +12,32 @@
             @csrf
             <table class="create_edit_form">
                 <tr>
-                    <th>飛行機ID　：</th>
-                    <td>{{$plane->id}}<input type="hidden" name="id" value="{{$plane->id}}"></td>
+                    <th>飛行機ID</th>
+                    <td>　：{{$plane->id}}<input type="hidden" name="id" value="{{$plane->id}}"></td>
                 </tr>
                 <tr>
-                    <th>日　　付　：</th>
-                    <td><input type="text" class="create_edit_input" name="date" value="{{$plane->date}}"></td>
+                    <th>日　　付</th>
+                    <td>　：<input type="text" class="create_edit_input" name="date" value="{{$plane->date}}"></td>
                 </tr>
                 <tr>
-                    <th>出発時間　：</th>
-                    <td><input type="text" class="create_edit_input" name="departure_time" value="{{$plane->departure_time}}"></td>
+                    <th>出発時間</th>
+                    <td>　：<input type="text" class="create_edit_input" name="departure_time" value="{{$plane->departure_time}}"></td>
                 </tr>
                 <tr>
-                    <th>到着時間　：</th>
-                    <td><input type="text" class="create_edit_input" name="arrival_time" value="{{$plane->arrival_time}}"></td>
+                    <th>到着時間</th>
+                    <td>　：<input type="text" class="create_edit_input" name="arrival_time" value="{{$plane->arrival_time}}"></td>
                 </tr>
                 <tr>
-                    <th>出  発  地　：</th>
-                    <td><input type="text" class="create_edit_input" name="departure" value="{{$plane->departure}}"></td>
+                    <th>出発地</th>
+                    <td>　：<input type="text" class="create_edit_input" name="departure" value="{{$plane->departure}}"></td>
                 </tr>
                 <tr>
-                    <th>到  着  地　：</th>
-                    <td><input type="text" class="create_edit_input" name="arrival" value="{{$plane->arrival}}"></td>
+                    <th>到着地</th>
+                    <td>　：<input type="text" class="create_edit_input" name="arrival" value="{{$plane->arrival}}"></td>
+                </tr>
+                <tr>
+                    <th>座席数</th>
+                    <td>　：<input type="text" class="create_edit_input" name="seat" value="{{$plane->seat}}"></td>
                 </tr>
             </table>
             <div class="edit_btn_area">

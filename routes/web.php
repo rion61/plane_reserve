@@ -49,6 +49,8 @@ Route::get('/mybooks',[BookController::class,'index'])->name('books');
 Route::get('/mybook/{id}',[BookController::class,'show'])->name('book');
 // 予約の削除の決定
 Route::post('/mybook{id}',[BookController::class,'update'])->name('delete');
+// 飛行機の検索
+Route::get('/planeSearch',[ReserveController::class,'planeSearch'])->name('planeSearch');
 
 
 // ユーザー情報------------------------------------------------------------------------------------
@@ -93,6 +95,7 @@ Route::group(['middleware' => ['auth', 'can:system-only']], function () {
     //飛行機便の一覧
     Route::get('/plane_list', [App\Http\Controllers\ManagerController::class, 'plane_list'])->name('plane_list');
 });
+Route::get('/topview', [App\Http\Controllers\SystemController::class, 'topview'])->name('topview');
 
 
 // 管理者の情報修正--------------------------------------------------

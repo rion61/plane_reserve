@@ -22,6 +22,7 @@
                 <th>到着時間</th>
                 <th>出発地</th>
                 <th>到着地</th>
+                <th>座席数</th>
                 <th>編集/削除</th>
             </tr>
             @foreach($plane as $value)
@@ -32,6 +33,7 @@
                 <td>{{$value->arrival_time}}</td>
                 <td>{{$value->departure}}</td>
                 <td>{{$value->arrival}}</td>
+                <td>{{$value->seat}}</td>
                 <td><a href="plane_edit/{{$value->id}}">編集/削除</a></td>
             </tr>
             @endforeach

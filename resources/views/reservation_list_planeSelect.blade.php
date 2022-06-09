@@ -17,6 +17,7 @@
                 <th>到着時間</th>
                 <th>出発地</th>
                 <th>到着地</th>
+                <th>座席数</th>
                 <th>　　　</th>
             </tr>
             @foreach($plane as $value)
@@ -27,6 +28,7 @@
                 <td>{{ $value->arrival_time}}</td>
                 <td>{{ $value->departure}}</td>
                 <td>{{ $value->arrival}}</td>
+                <td>{{ $value->seat}}</td>
                 <td><a href="reservationList_member/{{$value->id}}">予約者一覧</a></td>
             </tr>
             @endforeach
