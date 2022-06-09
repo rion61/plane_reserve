@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<!-- バリデーションエラーの表示 -->
+@include('errors.varidate')
 <section>
     <div class="common-container">
         <form action="/userEdit_Save" method="post">

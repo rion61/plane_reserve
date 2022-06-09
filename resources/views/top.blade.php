@@ -8,8 +8,8 @@
         </div>
         <p>※<b>日付</b>と<b>出発地</b>からでも検索ができます</p>
         <form method="GET" action="/planeSearch" class="d-flex">
-            <input  class="searchForm form-control me-2" type="date" aria-label="Search" name="search1" value="@if (isset($search1)) {{ $search1 }} @endif">
-            <input  class="searchForm form-control me-2" type="text" aria-label="Search" name="search2" placeholder="出発地" value="@if (isset($search2)) {{ $search2 }} @endif">
+            <input  class="searchForm form-control me-2" type="date" aria-label="Search" name="search1" value="@if(isset($search1)){{ $search1 }}@endif">
+            <input  class="searchForm form-control me-2" type="text" aria-label="Search" name="search2" placeholder="@if(isset($search2)){{ $search2 }}@else 出発地 @endif" value="@if(isset($search2)){{ $search2 }}@endif">
             <button class="searchBtn btn btn-outline-success" type="submit">検索</button>
             <button class="clearBtn btn " type="submit"><a href="{{ route('top') }}">クリア</a></button>
         </form>

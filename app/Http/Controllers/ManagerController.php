@@ -54,6 +54,12 @@ class ManagerController extends Controller
 
     //会員の個人編集決定
     public function userEdit_Save(Request $request){
+        $validated = $request->validate([
+            'name' => 'required | string',
+            'tel' => 'required | between:8,13',
+            'email' => 'required | email | max:255',
+            // 'email' => 'required | email:strict,dns,spoof | max:255',
+        ]);
 
         $user = User::where('id','=',Auth::user()->id)->first();
         $user->name = $request->name;
@@ -70,6 +76,15 @@ class ManagerController extends Controller
 
     // 飛行機作成確認
     public function  plane_create_check(Request $request){
+
+        $validated = $request->validate([
+            'date' => 'required | date | after:today',
+            'departure_time' => 'required',
+            'arrival_time' => 'required',
+            'departure' => 'required | string',
+            'arrival' => 'required | string',
+            'seat' => 'required | integer',
+        ]);
 
         $plane = New Plane();
 
