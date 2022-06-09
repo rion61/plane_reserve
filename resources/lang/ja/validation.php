@@ -15,7 +15,7 @@ return [
 
     'accepted'             => ':attributeを承認してください。',
     'active_url'           => ':attributeが有効なURLではありません。',
-    'after'                => ':attributeには、:dateより後の日付を指定してください。',
+    'after'                => ':attributeには、本日より後の日付を指定してください。',
     'after_or_equal'       => ':attributeには、:date以降の日付を指定してください。',
     'alpha'                => ':attributeはアルファベットのみがご利用できます。',
     'alpha_dash'           => ':attributeはアルファベットとダッシュ(-)及び下線(_)がご利用できます。',
@@ -145,6 +145,17 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'name' => '氏名',
+        'email' => 'メールアドレス',
+        'tel' => '電話番号',
+        'password' => 'パスワード',
+        'now' => '本日',
+        'date' => '日付',
+        'departure_time' => '出発時間',
+        'arrival_time' => '到着時間',
+        'departure' => '出発地',
+        'arrival' => '到着地',
+        'seat' => '座席数',
+    ]
 ];

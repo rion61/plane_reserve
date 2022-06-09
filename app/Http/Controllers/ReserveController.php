@@ -38,8 +38,6 @@ class ReserveController extends Controller
     //飛行機便の絞り込み検索
     public function planeSearch(Request $request){
 
-        // $planes = Plane::withCount('users')->get();
-
         $search1 = $request->search1;
         $search2 = $request->search2;
 
@@ -60,7 +58,9 @@ class ReserveController extends Controller
             $post = plane::orderBy('created_at','desc')->withCount('users')->paginate(50);
         }
             return view('top')->with([
-                'planes' => $post, 'planes' => $post,
+                'planes' => $post,
+                'search1'=> $search1,
+                'search2'=> $search2
         ]);
     }
     /**
