@@ -38,14 +38,14 @@
         </div>
         <div class="loopSlide">
   <ul>
-    <li><img src="img/plane.jpeg" alt=""></li>
-    <li><img src="img/plane1.jpeg" alt=""></li>
-    <li><img src="img/plane2.jpeg" alt=""></li>
+    <li><img src="img/plane.jpg" alt=""></li>
+    <li><img src="img/plane1.jpg" alt=""></li>
+    <li><img src="img/plane2.jpg" alt=""></li>
   </ul>
   <ul>
-  <li><img src="img/plane.jpeg" alt=""></li>
-    <li><img src="img/plane1.jpeg" alt=""></li>
-    <li><img src="img/plane2.jpeg" alt=""></li>
+  <li><img src="img/plane.jpg" alt=""></li>
+    <li><img src="img/plane1.jpg" alt=""></li>
+    <li><img src="img/plane2.jpg" alt=""></li>
   </ul>
 </div>
     <div class="topimg">
