@@ -24,7 +24,7 @@ use App\Http\Controllers\ManagerController;
 
 Auth::routes();
 
-// welcome画面に遷移---------------------------------------------------------------------
+// top画面に遷移---------------------------------------------------------------------
 
 Route::get('/', function () {
     return view('welcome');
@@ -95,7 +95,7 @@ Route::group(['middleware' => ['auth', 'can:system-only']], function () {
     //飛行機便の一覧
     Route::get('/plane_list', [App\Http\Controllers\ManagerController::class, 'plane_list'])->name('plane_list');
 });
-Route::get('/topview', [App\Http\Controllers\SystemController::class, 'topview'])->name('topview');
+
 
 
 // 管理者の情報修正--------------------------------------------------
