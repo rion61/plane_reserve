@@ -22,10 +22,9 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- 独自のCSSを反映する -->
         
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
         {{-- JQuery --}}
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
@@ -34,19 +33,36 @@
         <link rel="stylesheet" href="{{asset('css/site.css')}}">
     </head>
     <body>
-        <main>
-            <div class="top-txt">
-                <h2>思い出を予約しよう。</h2>
-                <a class="nav-btn" href="#">ログイン</a>
-                <a class="nav-link" href="#">-新規登録はこちらから-</a>
-            </div>
-            <ul class="slide-items">
-                    <li><img src="img/fv1.jpg" alt="Top画像"></li>
-                    <li><img src="img/fv2.jpg" alt="Top画像"></li>
-                    <li><img src="img/fv3.jpg" alt="Top画像"></li>
-                    <li><img src="img/fv4.jpg" alt="Top画像"></li>
-                    <li><img src="img/fv5.jpg" alt="Top画像"></li>
+        <header id="header">
+            <nav class="header">
+                <ul class="header-nav">
+                    <li>
+                        <h1>飛行機予約システム</h1>
+                    </li>
+                    <li>
+                        <ul class="header-nav">
+                            <li>
+                                <a class="nav-link" href="#">ログイン</a></div>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#">新規登録</a></div>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="top-img">
+                <h2>今までにない思い出づくりを</h2>
+                    <ul class="slide-items">
+                        <li><img src="img/fv1.jpg" alt="Top画像"></li>
+                        <li><img src="img/fv2.jpg" alt="Top画像"></li>
+                        <li><img src="img/fv3.jpg" alt="Top画像"></li>
+                        <li><img src="img/fv4.jpg" alt="Top画像"></li>
+                        <li><img src="img/fv5.jpg" alt="Top画像"></li>
+                    </ul>
+                </div>
             </div>
         </main>
             <script>
