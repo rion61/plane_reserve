@@ -85,10 +85,10 @@ class SystemController extends Controller
                 'users' => $users,
             ]);
         }
-        public function topview(Request $request)
+        public function welcome(Request $request)
         {
             $users = User::orderBy('created_at', 'asc')->get();
-            return view('topview', [
+            return view('welcome', [
                 'users' => $users,
             ]);
         }
