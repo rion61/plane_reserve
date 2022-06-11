@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/************************************
+header
+*************************************/
+#header{
+    position: relative;
+    z-index: 9999;
+}
+.header{
+    position: absolute;
+    top: 0%;
+    padding: 10px 0;
+    width: 100%;
+    background-color: rgb(211,179,091);
+}
+.header h1{
+    color:rgb(000,037,056);
+}
+.header-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+.header-nav li{
+    list-style: none;
+    margin: 0 10px;
+}
+.headtitle {
+    font-family: 'Avenir','Corbel','Osaka',monospace;
+    color: rgb(247, 244, 244);
+}
+.nav-link{
+    font-size: 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: crimson;
+    color: rgb(253, 251, 251);
+    border-radius: 15px;
+}
+.buttonarea a:hover{
+    background-color: rgb(172, 45, 45);
+}
+/************************************
+fv部部
+*************************************/
+.top-img {
+    position: relative;
+    margin: 0;
+}
+.top-img h2 {
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    margin: 0 auto;
+    color: rgb(255, 255, 255);
+    font-size: 4em;
+    font-weight: bold;
+    font-family : Quicksand, sans-serif;/*Google Font*/
+    z-index: 9999;
+}
+.slide-items {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.slide-items img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+.slick-next:before{
+    display: none;
+}
+.slick-next:after{
+    display: none;
+}
+.slick-next{
+    right: 0;
+    left: 0%;
+}
