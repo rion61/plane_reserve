@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Support\Facades\Schema;
 
 use Illuminate\Support\Facades\Gate;
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 // use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
+        
         $this->registerPolicies();
 
         // 開発者のみ許可
@@ -36,4 +40,7 @@ class AppServiceProvider extends ServiceProvider
             return ($user->role >= 0 );
         });
             }
+
+
+
 }
