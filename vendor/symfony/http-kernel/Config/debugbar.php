@@ -1,0 +1,1 @@
+DEBUGBAR_ENABLED=false
