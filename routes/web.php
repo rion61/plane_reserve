@@ -20,6 +20,7 @@ use App\Http\Controllers\ManagerController;
 |
 */
 
+// テスト
 
 
 Auth::routes();
